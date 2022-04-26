@@ -1,0 +1,6 @@
+{
+  "trailingComma": "all",
+  "useEditorConfig": false,
+  "singleQuote": true,
+  "endOfLine": "auto"
+}
