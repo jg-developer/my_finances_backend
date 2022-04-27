@@ -35,7 +35,7 @@ export class CreateCreditCards1651013444357 implements MigrationInterface {
           },
           {
             name: 'brand_id',
-            type: 'string',
+            type: 'varchar',
             isNullable: false,
           },
           {
