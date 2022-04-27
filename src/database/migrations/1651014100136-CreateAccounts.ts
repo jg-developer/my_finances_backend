@@ -43,5 +43,7 @@ export class CreateAccounts1651014100136 implements MigrationInterface {
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('accounts');
+  }
 }
