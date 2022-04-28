@@ -22,7 +22,8 @@
     "typeorm:prod": "NODE_ENV=production ts-node-dev ./node_modules/typeorm/cli.js",
     "rollback": "node -r dotenv-flow/config ./node_modules/knex/bin/cli.js migrate:rollback --knexfile ./src/models/knexfile.js",
     "rollback:dev": "NODE_ENV=development npm run rollback",
-    "rollback:prod": "NODE_ENV=production npm run rollback"
+    "rollback:prod": "NODE_ENV=production npm run rollback",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
   "dependencies": {
     "cors": "^2.8.5",
