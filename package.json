@@ -13,7 +13,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "NODE_ENV=development node dist/server.js",
     "build": "tsc",
     "postinstall": "npm run build",
     "build-ts": "npm run clean && tsc",
