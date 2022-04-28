@@ -9,10 +9,15 @@
   "author": "Jonathan Gomes",
   "license": "ISC",
   "homepage": "https://github.com/jg-developer/my_finances_backend#readme",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
+    "start": "node build/index.js",
+    "build": "tsc",
+    "postinstall": "npm run build",
     "build-ts": "npm run clean && tsc",
     "dev:server": "NODE_ENV=local ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "start": "ts-node src/server.ts",
     "typeorm:dev": "NODE_ENV=local ts-node-dev ./node_modules/typeorm/cli.js",
     "typeorm:prod": "NODE_ENV=production ts-node-dev ./node_modules/typeorm/cli.js",
     "rollback": "node -r dotenv-flow/config ./node_modules/knex/bin/cli.js migrate:rollback --knexfile ./src/models/knexfile.js",
