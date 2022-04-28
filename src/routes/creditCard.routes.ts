@@ -42,6 +42,7 @@ creditCardRouter.get('/', async (request, response) => {
 
   const credit_cards = await creditCardsRepository
     .createQueryBuilder('credit_cards')
+    .leftJoinAndSelect('credit_cards.credit_card_brand', 'credit_card_brand')
     .where(where_query as string)
     .take(per_page as number)
     .skip(skip as number)
@@ -53,6 +54,7 @@ creditCardRouter.get('/', async (request, response) => {
 
   const total_credit_cards = await creditCardsRepository
     .createQueryBuilder('credit_cards')
+    .leftJoinAndSelect('credit_cards.credit_card_brand', 'credit_card_brand')
     .where(where_query as string)
     .getCount();
 
@@ -73,7 +75,9 @@ creditCardRouter.get('/:id', async (request, response) => {
 
   const creditCardsRepository = getRepository(CreditCards);
 
-  const creditCard = await creditCardsRepository.findOne(id);
+  const creditCard = await creditCardsRepository.findOne(id, {
+    relations: ['credit_card_brand'],
+  });
 
   return response.json(creditCard);
 });
